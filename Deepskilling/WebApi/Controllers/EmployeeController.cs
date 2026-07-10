@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 using FirstWebApi.Models;
 using FirstWebApi.Filters;
 
@@ -6,18 +7,41 @@ namespace FirstWebApi.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-[CustomAuthFilter]
+[Authorize]
 [CustomExceptionFilter]
 public class EmployeeController : ControllerBase
 {
     [HttpGet]
     public ActionResult<List<Employee>> GetStandard()
     {
-        // Testing Custom Exception Filter
-        throw new Exception("Demo exception from Employee API");
+        return Ok(GetStandardEmployeeList());
+    }
 
-        // Normal code (commented for testing)
-        // return Ok(GetStandardEmployeeList());
+    [HttpPut("{id}")]
+    public ActionResult<Employee> UpdateEmployee(int id, [FromBody] Employee employee)
+    {
+        if (id <= 0)
+        {
+            return BadRequest("Invalid employee id");
+        }
+
+        var employees = GetStandardEmployeeList();
+
+        var existingEmployee = employees.FirstOrDefault(e => e.Id == id);
+
+        if (existingEmployee == null)
+        {
+            return BadRequest("Invalid employee id");
+        }
+
+        existingEmployee.Name = employee.Name;
+        existingEmployee.Salary = employee.Salary;
+        existingEmployee.Permanent = employee.Permanent;
+        existingEmployee.DateOfBirth = employee.DateOfBirth;
+        existingEmployee.Department = employee.Department;
+        existingEmployee.Skills = employee.Skills;
+
+        return Ok(existingEmployee);
     }
 
     private List<Employee> GetStandardEmployeeList()
@@ -38,16 +62,8 @@ public class EmployeeController : ControllerBase
                 },
                 Skills = new List<Skill>
                 {
-                    new Skill
-                    {
-                        Id = 1,
-                        Name = "C#"
-                    },
-                    new Skill
-                    {
-                        Id = 2,
-                        Name = "SQL"
-                    }
+                    new Skill { Id = 1, Name = "C#" },
+                    new Skill { Id = 2, Name = "SQL" }
                 }
             }
         };
