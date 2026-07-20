@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: product-service
+spec:
+  # ClusterIP: only reachable from inside the cluster (e.g. by an API Gateway or OrderService).
+  # Kubernetes' built-in service discovery lets other pods reach this simply via
+  # the DNS name "product-service" - no external registry needed inside the cluster.
+  type: ClusterIP
+  selector:
+    app: product-service
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080

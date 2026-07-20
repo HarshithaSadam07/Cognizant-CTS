@@ -1,0 +1,100 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f4f8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  text-align: center;
+}
+
+h1 {
+  color: #2c3e50;
+  margin-bottom: 30px;
+  font-size: 1.8rem;
+}
+
+.counter-box {
+  background: white;
+  border-radius: 16px;
+  padding: 36px 40px;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.12);
+  width: 480px;
+}
+
+.counter-box h2 {
+  color: #2c3e50;
+  margin-bottom: 24px;
+  font-size: 1.3rem;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 30px;
+}
+
+.stat-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px 20px;
+  border-radius: 10px;
+  min-width: 100px;
+}
+
+.entry { background-color: #e8f5e9; }
+.inside { background-color: #e3f2fd; }
+.exit { background-color: #fce4ec; }
+
+.stat-number {
+  font-size: 2.4rem;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: #7f8c8d;
+  margin-top: 4px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.btn-login, .btn-exit {
+  padding: 12px 28px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform 0.1s, opacity 0.2s;
+}
+
+.btn-login:hover, .btn-exit:hover {
+  opacity: 0.85;
+  transform: scale(1.03);
+}
+
+.btn-login {
+  background-color: #27ae60;
+  color: white;
+}
+
+.btn-exit {
+  background-color: #e74c3c;
+  color: white;
+}

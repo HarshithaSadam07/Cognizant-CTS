@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: product-service
+  labels:
+    app: product-service
+spec:
+  replicas: 3
+  # Rolling update: new pods are brought up and old ones torn down gradually,
+  # so there is zero downtime during a deployment.
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1          # allow 1 extra pod above `replicas` during rollout
+      maxUnavailable: 0    # never drop below the desired replica count
+  selector:
+    matchLabels:
+      app: product-service
+  template:
+    metadata:
+      labels:
+        app: product-service
+    spec:
+      containers:
+        - name: product-service
+          image: yourdockerhubuser/product-service:latest
+          ports:
+            - containerPort: 8080
+          # Kubernetes uses these to decide when to restart (liveness)
+          # vs when to send traffic (readiness) - matching the two endpoints
+          # exposed by Program.cs (/health/live and /health/ready).
+          livenessProbe:
+            httpGet:
+              path: /health/live
+              port: 8080
+            initialDelaySeconds: 10
+            periodSeconds: 15
+          readinessProbe:
+            httpGet:
+              path: /health/ready
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "500m"
+              memory: "256Mi"

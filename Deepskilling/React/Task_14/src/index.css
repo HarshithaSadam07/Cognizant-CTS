@@ -1,0 +1,115 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+.light-app {
+  background-color: #f0f4f8;
+  min-height: 100vh;
+  padding: 30px;
+}
+
+.dark-app {
+  background-color: #1a1a2e;
+  min-height: 100vh;
+  padding: 30px;
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.light-app .app-header h1 { color: #2c3e50; }
+.dark-app .app-header h1 { color: #ecf0f1; }
+
+.toggle-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
+  background: #3498db;
+  color: white;
+  transition: background 0.2s;
+}
+
+.toggle-btn:hover { background: #2980b9; }
+
+.context-info {
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+}
+
+.light-app .context-info { color: #7f8c8d; }
+.dark-app .context-info { color: #bdc3c7; }
+
+.employee-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.employee-card {
+  border-radius: 12px;
+  padding: 20px;
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.12);
+}
+
+.light-card {
+  background: white;
+  border: 1px solid #e0e0e0;
+}
+
+.dark-card {
+  background: #16213e;
+  border: 1px solid #0f3460;
+}
+
+.emp-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #3498db;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.emp-info {
+  text-align: center;
+}
+
+.light-card .emp-info h3 { color: #2c3e50; }
+.dark-card .emp-info h3 { color: #ecf0f1; }
+
+.light-card .emp-info p { color: #666; font-size: 0.85rem; }
+.dark-card .emp-info p { color: #bdc3c7; font-size: 0.85rem; }
+
+.theme-btn {
+  padding: 6px 14px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  cursor: default;
+  font-weight: 600;
+}
+
+.light-btn { background: #fff3e0; color: #e67e22; }
+.dark-btn { background: #0f3460; color: #a8dadc; }

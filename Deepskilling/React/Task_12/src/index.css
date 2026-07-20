@@ -1,0 +1,120 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f4f8;
+  padding: 30px;
+}
+
+.container {
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.header {
+  background: #2c3e50;
+  color: white;
+  padding: 18px 24px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.header h1 { font-size: 1.4rem; }
+
+.btn-login {
+  background: #27ae60;
+  color: white;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.btn-logout {
+  background: #e74c3c;
+  color: white;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.page-content {
+  background: white;
+  border-radius: 12px;
+  padding: 28px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+}
+
+.page-content h2 {
+  color: #2c3e50;
+  margin-bottom: 10px;
+  font-size: 1.4rem;
+}
+
+.note {
+  color: #7f8c8d;
+  margin-bottom: 18px;
+  font-size: 0.95rem;
+}
+
+.flights-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.flights-table th, .flights-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid #eee;
+  text-align: left;
+}
+
+.flights-table th {
+  background: #2c3e50;
+  color: white;
+}
+
+.flights-table tbody tr:hover {
+  background: #f8f9fa;
+}
+
+.book-btn {
+  background: #3498db;
+  color: white;
+  border: none;
+  padding: 6px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.88rem;
+}
+
+.book-btn:hover { background: #2980b9; }
+
+.booking-confirm {
+  margin-top: 20px;
+  background: #e8f5e9;
+  border-left: 4px solid #27ae60;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.booking-confirm h3 {
+  color: #27ae60;
+  margin-bottom: 6px;
+}
+
+.booking-confirm p {
+  color: #2c3e50;
+  font-size: 1rem;
+}

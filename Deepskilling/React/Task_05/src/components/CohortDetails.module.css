@@ -1,0 +1,33 @@
+/* CSS Module for CohortDetails */
+
+.box {
+  width: 300px;
+  display: inline-block;
+  margin: 10px;
+  padding: 10px 20px;
+  border: 1px solid black;
+  border-radius: 10px;
+  vertical-align: top;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.box dl dt {
+  font-weight: 500;
+  color: #333;
+  margin-top: 6px;
+}
+
+.box dl dd {
+  color: #555;
+  margin-left: 12px;
+  margin-bottom: 4px;
+}
+
+.ongoing h3 {
+  color: green;
+}
+
+.notOngoing h3 {
+  color: blue;
+}
